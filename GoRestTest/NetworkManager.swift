@@ -127,7 +127,7 @@ extension Network: GoRestAPI {
         let encoder = JSONEncoder.init()
         let decoder = JSONDecoder.init()
         
-        let updateUser = User(name: "URLRequestUpdateUser", gender: "Male", email: <#String?#>, status:"Active")
+        let updateUser = User(name: "URLRequestPatchUser", gender: "Male", email: "", status:"Inactive")
         
         var httpRequest = URLRequest(url: URL(string: "https://gorest.co.in/public-api/users/123")!)
         
@@ -162,7 +162,47 @@ extension Network: GoRestAPI {
     
     //TODO
     func putUser() {
-        /*let headers = ["content-type": "application/json; charset=UTF-8","Authorization": Network.ACCESS_TOKEN]
+        let headers = ["content-type": "application/json; charset=UTF-8","Authorization": Network.ACCESS_TOKEN]
+        
+        let encoder = JSONEncoder.init()
+        let decoder = JSONDecoder.init()
+        
+        let updateUser = User(name: "URLRequestPutUser", gender: "Male", email: "", status:"Inactive")
+        
+        var httpRequest = URLRequest(url: URL(string: "https://gorest.co.in/public-api/users/123")!)
+        
+        httpRequest.httpMethod = "PUT"
+        do {
+            httpRequest.httpBody = try! encoder.encode(updateUser)
+        }catch{
+            print(error)
+        }
+        httpRequest.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: httpRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
+          if (error != nil) {
+            print(error)
+          } else {
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            do {
+                //httpRequest.httpBody = try! encoder.encode(newPostTest)
+                let post = try! decoder.decode(User.self, from: data!)
+                print(post)
+            }catch{
+                print(error)
+            }
+
+          }
+        })
+
+        dataTask.resume()
+    }
+    
+    //TODO
+    func deleteUser() {
+        let headers = ["content-type": "application/json; charset=UTF-8","Authorization": Network.ACCESS_TOKEN]
         
         let encoder = JSONEncoder.init()
         let decoder = JSONDecoder.init()
@@ -171,7 +211,7 @@ extension Network: GoRestAPI {
         
         var httpRequest = URLRequest(url: URL(string: "https://gorest.co.in/public-api/users")!)
         
-        httpRequest.httpMethod = "POST"
+        httpRequest.httpMethod = "DELETE"
         do {
             httpRequest.httpBody = try! encoder.encode(newUser)
         }catch{
@@ -197,12 +237,7 @@ extension Network: GoRestAPI {
           }
         })
 
-        dataTask.resume()*/
-    }
-    
-    //TODO
-    func deleteUser() {
-        
+        dataTask.resume()
     }
     
     //TODO

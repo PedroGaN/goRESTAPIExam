@@ -17,10 +17,10 @@ class User : Codable {
     
     init (name : String?, gender : String?, email : String?, status : String?){
         
-        if name != nil {self.name = name}
-        if gender != nil {self.gender = gender}
-        if email != nil {self.email = email}
-        if status != nil {self.status = status}
+        if name != "" {self.name = name}
+        if gender != "" {self.gender = gender}
+        if email != "" {self.email = email}
+        if status != "" {self.status = status}
         
     }
     
