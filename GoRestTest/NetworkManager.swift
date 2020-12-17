@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class Network {
     
@@ -27,36 +28,206 @@ protocol GoRestAPI {
     
     func deleteUser()
     
+    func getUsersAlamofire()
+    
+    func postUserAlamofire()
+    
+    func patchUserAlamofire()
+    
+    func putUserAlamofire()
+    
+    func deleteUserAlamofire()
+    
 }
 
 
 extension Network: GoRestAPI {
     
-    static let ACCESS_TOKEN = "*****"
+    static let ACCESS_TOKEN = "1206788b567df794444d5cae3f14f932c2a5489c4d21d32ff745ec26416ed0c3"
     
     //TODO
     func getUsers() {
-        <#code#>
+
+        let decoder = JSONDecoder.init()
+        var httpRequest = URLRequest(url: URL(string: "https://gorest.co.in/public-api/users")!)
+        
+        httpRequest.httpMethod = "GET"
+
+        httpRequest.addValue("application/json", forHTTPHeaderField: "Accept-Language")
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: httpRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
+          if (error != nil) {
+            print(error)
+          } else {
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            do {
+                //httpRequest.httpBody = try! encoder.encode(newPostTest)
+                let post = try! decoder.decode(User.self, from: data!)
+                print(post)
+            }catch{
+                print(error)
+            }
+
+          }
+        })
+
+        dataTask.resume()
+        
     }
     
     //TODO
     func postUser() {
-        <#code#>
+        
+        let headers = ["content-type": "application/json; charset=UTF-8","Authorization": Network.ACCESS_TOKEN]
+        
+        let encoder = JSONEncoder.init()
+        let decoder = JSONDecoder.init()
+        
+        let newUser = User(name: "URLRequestUser", gender: "Male", email: "urlrequest@gmail.com", status:"Active")
+        
+        var httpRequest = URLRequest(url: URL(string: "https://gorest.co.in/public-api/users")!)
+        
+        httpRequest.httpMethod = "POST"
+        do {
+            httpRequest.httpBody = try! encoder.encode(newUser)
+        }catch{
+            print(error)
+        }
+        httpRequest.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: httpRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
+          if (error != nil) {
+            print(error)
+          } else {
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            do {
+                //httpRequest.httpBody = try! encoder.encode(newPostTest)
+                let post = try! decoder.decode(User.self, from: data!)
+                print(post)
+            }catch{
+                print(error)
+            }
+
+          }
+        })
+
+        dataTask.resume()
+        
+        
     }
     
     //TODO
     func patchUser() {
-        <#code#>
+        let headers = ["content-type": "application/json; charset=UTF-8","Authorization": Network.ACCESS_TOKEN]
+        
+        let encoder = JSONEncoder.init()
+        let decoder = JSONDecoder.init()
+        
+        let updateUser = User(name: "URLRequestUpdateUser", gender: "Male", email: <#String?#>, status:"Active")
+        
+        var httpRequest = URLRequest(url: URL(string: "https://gorest.co.in/public-api/users/123")!)
+        
+        httpRequest.httpMethod = "PATCH"
+        do {
+            httpRequest.httpBody = try! encoder.encode(updateUser)
+        }catch{
+            print(error)
+        }
+        httpRequest.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: httpRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
+          if (error != nil) {
+            print(error)
+          } else {
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            do {
+                //httpRequest.httpBody = try! encoder.encode(newPostTest)
+                let post = try! decoder.decode(User.self, from: data!)
+                print(post)
+            }catch{
+                print(error)
+            }
+
+          }
+        })
+
+        dataTask.resume()
     }
     
     //TODO
     func putUser() {
-        <#code#>
+        /*let headers = ["content-type": "application/json; charset=UTF-8","Authorization": Network.ACCESS_TOKEN]
+        
+        let encoder = JSONEncoder.init()
+        let decoder = JSONDecoder.init()
+        
+        let newUser = User(name: "URLRequestUser", gender: "Male", email: "urlrequest@gmail.com", status:"Active")
+        
+        var httpRequest = URLRequest(url: URL(string: "https://gorest.co.in/public-api/users")!)
+        
+        httpRequest.httpMethod = "POST"
+        do {
+            httpRequest.httpBody = try! encoder.encode(newUser)
+        }catch{
+            print(error)
+        }
+        httpRequest.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: httpRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
+          if (error != nil) {
+            print(error)
+          } else {
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            do {
+                //httpRequest.httpBody = try! encoder.encode(newPostTest)
+                let post = try! decoder.decode(User.self, from: data!)
+                print(post)
+            }catch{
+                print(error)
+            }
+
+          }
+        })
+
+        dataTask.resume()*/
     }
     
     //TODO
     func deleteUser() {
-        <#code#>
+        
+    }
+    
+    //TODO
+    func getUsersAlamofire() {
+        
+    }
+    
+    //TODO
+    func postUserAlamofire() {
+        
+    }
+    
+    //TODO
+    func patchUserAlamofire() {
+        
+    }
+    
+    //TODO
+    func putUserAlamofire() {
+        
+    }
+    
+    //TODO
+    func deleteUserAlamofire() {
+        
     }
     
 }

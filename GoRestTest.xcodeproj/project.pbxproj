@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,9 +15,11 @@
 		0A294BCE258BA31100CB60C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A294BCC258BA31100CB60C6 /* LaunchScreen.storyboard */; };
 		0A294BD6258BA35D00CB60C6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A294BD5258BA35D00CB60C6 /* NetworkManager.swift */; };
 		0A294BD9258BA62500CB60C6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A294BD8258BA62500CB60C6 /* Model.swift */; };
+		87455DA5D7A6F06A180B2391 /* Pods_GoRestTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D173752675F027B30B2133BF /* Pods_GoRestTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03C0F9A5EB26118576D9D60D /* Pods-GoRestTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoRestTest.release.xcconfig"; path = "Target Support Files/Pods-GoRestTest/Pods-GoRestTest.release.xcconfig"; sourceTree = "<group>"; };
 		0A294BBE258BA30F00CB60C6 /* GoRestTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoRestTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A294BC1258BA30F00CB60C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A294BC3258BA30F00CB60C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		0A294BCF258BA31100CB60C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A294BD5258BA35D00CB60C6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0A294BD8258BA62500CB60C6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		4445110BFE56534636AFF290 /* Pods-GoRestTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoRestTest.debug.xcconfig"; path = "Target Support Files/Pods-GoRestTest/Pods-GoRestTest.debug.xcconfig"; sourceTree = "<group>"; };
+		D173752675F027B30B2133BF /* Pods_GoRestTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoRestTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87455DA5D7A6F06A180B2391 /* Pods_GoRestTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				0A294BC0258BA30F00CB60C6 /* GoRestTest */,
 				0A294BBF258BA30F00CB60C6 /* Products */,
+				695283FD1888DB28B5A66605 /* Pods */,
+				C582021B8B74BF4D32D1B624 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +67,7 @@
 		0A294BC0258BA30F00CB60C6 /* GoRestTest */ = {
 			isa = PBXGroup;
 			children = (
+				0A294BCF258BA31100CB60C6 /* Info.plist */,
 				0A294BD7258BA60500CB60C6 /* SupportFiles */,
 				0A294BC5258BA30F00CB60C6 /* ViewController.swift */,
 				0A294BD5258BA35D00CB60C6 /* NetworkManager.swift */,
@@ -75,10 +83,26 @@
 				0A294BC3258BA30F00CB60C6 /* SceneDelegate.swift */,
 				0A294BC7258BA30F00CB60C6 /* Main.storyboard */,
 				0A294BCA258BA31100CB60C6 /* Assets.xcassets */,
-				0A294BCF258BA31100CB60C6 /* Info.plist */,
 				0A294BCC258BA31100CB60C6 /* LaunchScreen.storyboard */,
 			);
 			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		695283FD1888DB28B5A66605 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4445110BFE56534636AFF290 /* Pods-GoRestTest.debug.xcconfig */,
+				03C0F9A5EB26118576D9D60D /* Pods-GoRestTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C582021B8B74BF4D32D1B624 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D173752675F027B30B2133BF /* Pods_GoRestTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,9 +112,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A294BD2258BA31100CB60C6 /* Build configuration list for PBXNativeTarget "GoRestTest" */;
 			buildPhases = (
+				226368065CF255D92B7AFD27 /* [CP] Check Pods Manifest.lock */,
 				0A294BBA258BA30F00CB60C6 /* Sources */,
 				0A294BBB258BA30F00CB60C6 /* Frameworks */,
 				0A294BBC258BA30F00CB60C6 /* Resources */,
+				29EAD23EAFEBFC4ED290E6B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -146,6 +172,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		226368065CF255D92B7AFD27 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoRestTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29EAD23EAFEBFC4ED290E6B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoRestTest/Pods-GoRestTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoRestTest/Pods-GoRestTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoRestTest/Pods-GoRestTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A294BBA258BA30F00CB60C6 /* Sources */ = {
@@ -298,6 +366,7 @@
 		};
 		0A294BD3258BA31100CB60C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4445110BFE56534636AFF290 /* Pods-GoRestTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -315,6 +384,7 @@
 		};
 		0A294BD4258BA31100CB60C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03C0F9A5EB26118576D9D60D /* Pods-GoRestTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
