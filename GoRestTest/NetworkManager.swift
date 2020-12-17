@@ -55,25 +55,15 @@ extension Network: GoRestAPI {
 
         httpRequest.addValue("application/json", forHTTPHeaderField: "Accept-Language")
         
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: httpRequest as URLRequest, completionHandler: { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: httpRequest as URLRequest){
+            data, response, error in
           if (error != nil) {
             print(error)
           } else {
             let httpResponse = response as? HTTPURLResponse
             print(httpResponse)
-            do {
-                //httpRequest.httpBody = try! encoder.encode(newPostTest)
-                let post = try! decoder.decode(User.self, from: data!)
-                print(post)
-            }catch{
-                print(error)
-            }
-
           }
-        })
-
-        dataTask.resume()
+        }.resume()
         
     }
     
