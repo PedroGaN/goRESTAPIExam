@@ -204,19 +204,9 @@ extension Network: GoRestAPI {
     func deleteUser() {
         let headers = ["content-type": "application/json; charset=UTF-8","Authorization": Network.ACCESS_TOKEN]
         
-        let encoder = JSONEncoder.init()
-        let decoder = JSONDecoder.init()
-        
-        let newUser = User(name: "URLRequestUser", gender: "Male", email: "urlrequest@gmail.com", status:"Active")
-        
-        var httpRequest = URLRequest(url: URL(string: "https://gorest.co.in/public-api/users")!)
+        var httpRequest = URLRequest(url: URL(string: "https://gorest.co.in/public-api/users/123")!)
         
         httpRequest.httpMethod = "DELETE"
-        do {
-            httpRequest.httpBody = try! encoder.encode(newUser)
-        }catch{
-            print(error)
-        }
         httpRequest.allHTTPHeaderFields = headers
         
         let session = URLSession.shared
@@ -226,14 +216,6 @@ extension Network: GoRestAPI {
           } else {
             let httpResponse = response as? HTTPURLResponse
             print(httpResponse)
-            do {
-                //httpRequest.httpBody = try! encoder.encode(newPostTest)
-                let post = try! decoder.decode(User.self, from: data!)
-                print(post)
-            }catch{
-                print(error)
-            }
-
           }
         })
 
